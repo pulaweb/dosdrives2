@@ -253,8 +253,9 @@ int main (void) {
 	
     printf ("\n\nHit ESC to stop.\n");
 		
+	// we will read from drive 0
     CurrentSector = 0;
-    while (1) {
+    while (CurrentSector < diskdrive[0].total_sectors) {
         printf("BIOS read from drive 0x80 (0), sector : %d\n", CurrentSector);
         if (!read_multisector (CurrentSector, &diskdrive[0])) break;
         CurrentSector += MULTI_SECTOR;
